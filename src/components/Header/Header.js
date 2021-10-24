@@ -5,6 +5,8 @@ import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -29,7 +31,17 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
+        <MobileToTabletContainer>
+          <UnstyledButton>
+            <Icon id={"shopping-bag"} size={24} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id={"search"} size={24} />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id={"menu"} size={24} />
+          </UnstyledButton>
+        </MobileToTabletContainer>
       </MainHeader>
 
       <MobileMenu
@@ -46,17 +58,31 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  align-items: center;
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+  @media ${p => p.theme.tablets}{
+    display: none;
+  }
 `;
 
 const Side = styled.div`
   flex: 1;
 `;
+
+const MobileToTabletContainer = styled.div`
+display: none;
+@media ${p => p.theme.tablets}{
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  flex: 1;
+}  
+`
 
 const NavLink = styled.a`
   font-size: 1.125rem;

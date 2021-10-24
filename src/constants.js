@@ -16,3 +16,16 @@ export const WEIGHTS = {
   medium: 600,
   bold: 800,
 };
+
+const BREAKPOINTS = {
+  phoneMax: 37.5,
+  tabletMax: 59.375,
+  laptop: 81.21
+}
+
+export const DEVICES = {
+  "phones": `(max-width: ${BREAKPOINTS.phoneMax}rem)`,
+  "tablets": `(max-width: ${BREAKPOINTS.tabletMax}rem)`,
+  "laptop": `(max-width: ${BREAKPOINTS.laptop}rem)`,
+  color: "green"
+}

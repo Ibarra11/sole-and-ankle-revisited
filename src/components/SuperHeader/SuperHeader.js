@@ -32,11 +32,18 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+  @media ${p => p.theme.tablets}{
+    display: block;
+    height: 4px;
+   overflow: hidden;
+  }
+
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
   margin-right: auto;
+
 `;
 
 const HelpLink = styled.a`
